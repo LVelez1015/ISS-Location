@@ -1,3 +1,3 @@
 # ISS-Location
 
-## Calling an ISS API to pull the location of the Interational Space Station
+## Calling an ISS API to pull the location of the International Space Station

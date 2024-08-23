@@ -22,13 +22,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
 }
 
-/*
-.App-link {
-  color: #FFB6C1;
+.App-box {
+  background-color: #8791AB;
+  width: 425px;
+  padding: 0px 10px;
+  margin: 20px;
+  position: fixed; /* Fixed position relative to the viewport */
+  bottom: 0; /* Position at the bottom */
+  left: 0;
 }
-  */
+
+
 
 @keyframes App-logo-spin {
   from {

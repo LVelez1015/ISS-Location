@@ -8,6 +8,9 @@ const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 function App() {
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
+  const [inputLat, setInputLat] = useState(''); //for when user inputs a lat and long for testing
+  const [inputLong, setInputLong] = useState('');
+
   const [country, setCountry] = useState('');
   const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -52,8 +55,13 @@ function App() {
     }
   }, [lat, long, dataLoaded]); // Runs when lat, long, or dataLoaded change
   
-
+  const handleLatChange = (e) => setInputLat(e.target.value);  
+  const handleLongChange = (e) => setInputLong(e.target.value);
  
+  const handleApplyCoordinates = () => {  
+    setLat(parseFloat(inputLat));  
+    setLong(parseFloat(inputLong));  
+  };
 
   return (
     <div className="App">
@@ -73,13 +81,15 @@ function App() {
 
           
 
-         {/*FOR DEBUGGING: allowing user to plug in lat and long 
+         {/*FOR DEBUGGING: allowing user to plug in lat and long */}
             <label for="lat">Latitude: </label>
-            <input type="number" id="lat"/>
+            <input type="number" id="lat"  value={inputLat} onChange={handleLatChange}/>
             <label for="long"> <br /> Longitude: </label>
-            <input type="number" id="long"/>
+            <input type="number" id="long" value={inputLong} onChange={handleLongChange}/>
 
-*/}
+          <br />
+          <button onClick={handleApplyCoordinates}>Apply Coordinates</button>
+
         </div>
           
         <div className='App-box'>
